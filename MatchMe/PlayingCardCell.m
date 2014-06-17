@@ -28,6 +28,7 @@
     [super awakeFromNib];
     self.layer.cornerRadius = self.frame.size.width/16;
     [self customizeLabel];
+    [self configureBackOfCard];
 }
 
 
@@ -63,7 +64,19 @@
     return @{NSStrokeColorAttributeName:[self goldColor],
                  NSForegroundColorAttributeName:self.playingCardLabel.textColor,
                  NSStrokeWidthAttributeName:@(-5),
-                 NSFontAttributeName:[UIFont boldSystemFontOfSize:20]};}
+                 NSFontAttributeName:[UIFont boldSystemFontOfSize:20]};
+}
+
+
+/*
+ * Display an image on the background view of the cell
+ */
+- (void)configureBackOfCard
+{
+    UIImage* stanfordImage = [UIImage imageNamed:@"stanford"];
+    UIImageView* backOfCard = [[UIImageView alloc]initWithImage:stanfordImage];
+    self.backgroundView = backOfCard;
+}
 
 /*
  * Returns a rectangle that has an even margin all the way around it
