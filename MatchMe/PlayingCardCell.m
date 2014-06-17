@@ -79,7 +79,7 @@
 }
 
 /*
- * 
+ * Animate the card flip when a card is tapped
  */
  - (void)didReceiveTap
 {
@@ -115,7 +115,9 @@
     };
 }
 
-
+/*
+ * Complete the animation of card flipping by creating an additional animation
+ */
 - (void)animateFlipTheRestOfTheWay
 {
     [UIView animateWithDuration:.15 animations:[self flipTheRestOfTheWay]];

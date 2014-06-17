@@ -75,7 +75,7 @@
 
 
 /**
- *Shuffle the deck of cards using arc4random
+ * Returns true is the deck has another card false otherwise
  *@param void
  *@return BOOL
  */
@@ -85,7 +85,7 @@
 }
 
 /**
- *Shuffle the deck of cards using arc4random
+ * Returns the next card from the deck of cards
  *@param void
  *@return PlayingCard
  */
@@ -95,7 +95,7 @@
 }
 
 /**
- *Shuffle the deck of cards using arc4random
+ * Create the deck and then shuffle the deck of cards using arc4random
  *@param void
  *@return void
  */
