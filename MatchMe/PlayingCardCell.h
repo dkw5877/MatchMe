@@ -10,4 +10,6 @@
 
 @interface PlayingCardCell : UICollectionViewCell
 
+- (void)didReceiveTap;
+
 @end

@@ -41,10 +41,18 @@
     return 2 * [self numberOfPairs];
 }
 
+
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayingCardCell* playingCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PlayingCardCell" forIndexPath:indexPath];
     return playingCardCell;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PlayingCardCell* selectedCell = (PlayingCardCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    [selectedCell didReceiveTap];
 }
 
 @end

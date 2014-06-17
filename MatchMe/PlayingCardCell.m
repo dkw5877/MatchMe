@@ -79,6 +79,58 @@
 }
 
 /*
+ * 
+ */
+ - (void)didReceiveTap
+{
+    [UIView animateWithDuration:.15 animations:[self flipHalfway] completion:^(BOOL finished) {
+        [self reverseCard];
+        [self animateFlipTheRestOfTheWay];
+    }];
+}
+
+/*
+ * Flip the image halfway be scaling the x-axis to 100th the original size
+ * @return returns an animation block
+ */
+- (void(^)(void))flipHalfway
+{
+    return ^{
+        self.transform = CGAffineTransformMakeScale(0.01,1);
+        self.center = CGPointMake(self.center.x + self.frame.size.width/2,
+                                  self.center.y);
+    };
+
+}
+
+
+/*
+ * Flip the image from the scaled 100th size to original size
+ * @return returns an animation block
+ */
+- (void(^)(void))flipTheRestOfTheWay
+{
+    return ^{
+        self.transform = CGAffineTransformIdentity;
+    };
+}
+
+
+- (void)animateFlipTheRestOfTheWay
+{
+    [UIView animateWithDuration:.15 animations:[self flipTheRestOfTheWay]];
+}
+
+/*
+ * Reverse the appearance of the card by hiding/unhiding the label and background image
+ */
+- (void)reverseCard
+{
+    self.playingCardLabel.hidden = !self.playingCardLabel.hidden;
+    self.backgroundView.hidden = !self.backgroundView.hidden;
+}
+
+/*
  * Returns a rectangle that has an even margin all the way around it
  * @param CGRect representing the rectangle that is the border of each playing card
  * @return CGRect rectangle that has an even margin all the way around it
