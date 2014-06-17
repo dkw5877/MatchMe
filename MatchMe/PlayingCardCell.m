@@ -8,6 +8,10 @@
 
 #import "PlayingCardCell.h"
 
+@interface PlayingCardCell()
+@property (weak, nonatomic) IBOutlet UILabel *playingCardLabel;
+@end
+
 @implementation PlayingCardCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -23,8 +27,43 @@
 {
     [super awakeFromNib];
     self.layer.cornerRadius = self.frame.size.width/16;
+    [self customizeLabel];
 }
 
+
+/*
+ * Customize the playing card labels text
+ */
+- (void)customizeLabel
+{
+    self.playingCardLabel.attributedText = [[NSAttributedString alloc]initWithString:[self labelContentString] attributes:[self labelAttributes]];
+}
+
+
+/*
+ * Utility method to return the content of the label
+ * @return NSString content of the label
+ */
+- (NSString*)labelContentString
+{
+    return self.playingCardLabel.text;
+}
+
+/*
+ * Utility method to set the attributes of the label
+ * @return NSDictionary label attributes
+ */
+- (NSDictionary*)labelAttributes
+{
+//    return @{NSFontAttributeName:[UIFont boldSystemFontOfSize:24.0],
+//             NSForegroundColorAttributeName:self.playingCardLabel.textColor,
+//             NSTextEffectAttributeName:NSTextEffectLetterpressStyle};
+    
+    //place a gold boarder around the label text, leave the text color unchanged (red or black)
+    return @{NSStrokeColorAttributeName:[self goldColor],
+                 NSForegroundColorAttributeName:self.playingCardLabel.textColor,
+                 NSStrokeWidthAttributeName:@(-5),
+                 NSFontAttributeName:[UIFont boldSystemFontOfSize:20]};}
 
 /*
  * Returns a rectangle that has an even margin all the way around it
