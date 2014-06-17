@@ -14,13 +14,17 @@
 		CEF767F319509FB40055C9BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF767F219509FB40055C9BA /* main.m */; };
 		CEF767F719509FB40055C9BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF767F619509FB40055C9BA /* AppDelegate.m */; };
 		CEF767FA19509FB40055C9BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF767F819509FB40055C9BA /* Main.storyboard */; };
-		CEF767FD19509FB40055C9BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF767FC19509FB40055C9BA /* ViewController.m */; };
 		CEF767FF19509FB40055C9BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF767FE19509FB40055C9BA /* Images.xcassets */; };
 		CEF7680619509FB40055C9BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7680519509FB40055C9BA /* XCTest.framework */; };
 		CEF7680719509FB40055C9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF767E619509FB40055C9BA /* Foundation.framework */; };
 		CEF7680819509FB40055C9BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF767EA19509FB40055C9BA /* UIKit.framework */; };
 		CEF7681019509FB40055C9BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEF7680E19509FB40055C9BA /* InfoPlist.strings */; };
 		CEF7681219509FB40055C9BA /* MatchMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7681119509FB40055C9BA /* MatchMeTests.m */; };
+		CEF7681D1950A1510055C9BA /* PlayingCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7681C1950A1510055C9BA /* PlayingCardCell.m */; };
+		CEF768201950A1800055C9BA /* GameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7681F1950A1800055C9BA /* GameBoardViewController.m */; };
+		CEF7682A1950A23E0055C9BA /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF768251950A23E0055C9BA /* Deck.m */; };
+		CEF7682B1950A23E0055C9BA /* HitMeGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF768271950A23E0055C9BA /* HitMeGame.m */; };
+		CEF7682C1950A23E0055C9BA /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF768291950A23E0055C9BA /* PlayingCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,22 @@
 		CEF767F519509FB40055C9BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEF767F619509FB40055C9BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEF767F919509FB40055C9BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CEF767FB19509FB40055C9BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CEF767FC19509FB40055C9BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CEF767FE19509FB40055C9BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEF7680419509FB40055C9BA /* MatchMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF7680519509FB40055C9BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEF7680D19509FB40055C9BA /* MatchMeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchMeTests-Info.plist"; sourceTree = "<group>"; };
 		CEF7680F19509FB40055C9BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEF7681119509FB40055C9BA /* MatchMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchMeTests.m; sourceTree = "<group>"; };
+		CEF7681B1950A1510055C9BA /* PlayingCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardCell.h; sourceTree = "<group>"; };
+		CEF7681C1950A1510055C9BA /* PlayingCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardCell.m; sourceTree = "<group>"; };
+		CEF7681E1950A1800055C9BA /* GameBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardViewController.h; sourceTree = "<group>"; };
+		CEF7681F1950A1800055C9BA /* GameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardViewController.m; sourceTree = "<group>"; };
+		CEF768241950A23E0055C9BA /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		CEF768251950A23E0055C9BA /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		CEF768261950A23E0055C9BA /* HitMeGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitMeGame.h; sourceTree = "<group>"; };
+		CEF768271950A23E0055C9BA /* HitMeGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitMeGame.m; sourceTree = "<group>"; };
+		CEF768281950A23E0055C9BA /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		CEF768291950A23E0055C9BA /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +124,11 @@
 		CEF767EC19509FB40055C9BA /* MatchMe */ = {
 			isa = PBXGroup;
 			children = (
-				CEF767F519509FB40055C9BA /* AppDelegate.h */,
-				CEF767F619509FB40055C9BA /* AppDelegate.m */,
+				CEF7682D1950A2450055C9BA /* Model */,
+				CEF768231950A1C60055C9BA /* Playing Card Cell */,
+				CEF768211950A1A60055C9BA /* Start Up */,
+				CEF768221950A1B50055C9BA /* Game Board */,
 				CEF767F819509FB40055C9BA /* Main.storyboard */,
-				CEF767FB19509FB40055C9BA /* ViewController.h */,
-				CEF767FC19509FB40055C9BA /* ViewController.m */,
 				CEF767FE19509FB40055C9BA /* Images.xcassets */,
 				CEF767ED19509FB40055C9BA /* Supporting Files */,
 			);
@@ -150,6 +162,46 @@
 				CEF7680E19509FB40055C9BA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEF768211950A1A60055C9BA /* Start Up */ = {
+			isa = PBXGroup;
+			children = (
+				CEF767F519509FB40055C9BA /* AppDelegate.h */,
+				CEF767F619509FB40055C9BA /* AppDelegate.m */,
+			);
+			name = "Start Up";
+			sourceTree = "<group>";
+		};
+		CEF768221950A1B50055C9BA /* Game Board */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7681E1950A1800055C9BA /* GameBoardViewController.h */,
+				CEF7681F1950A1800055C9BA /* GameBoardViewController.m */,
+			);
+			name = "Game Board";
+			sourceTree = "<group>";
+		};
+		CEF768231950A1C60055C9BA /* Playing Card Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7681B1950A1510055C9BA /* PlayingCardCell.h */,
+				CEF7681C1950A1510055C9BA /* PlayingCardCell.m */,
+			);
+			name = "Playing Card Cell";
+			sourceTree = "<group>";
+		};
+		CEF7682D1950A2450055C9BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEF768241950A23E0055C9BA /* Deck.h */,
+				CEF768251950A23E0055C9BA /* Deck.m */,
+				CEF768261950A23E0055C9BA /* HitMeGame.h */,
+				CEF768271950A23E0055C9BA /* HitMeGame.m */,
+				CEF768281950A23E0055C9BA /* PlayingCard.h */,
+				CEF768291950A23E0055C9BA /* PlayingCard.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF767FD19509FB40055C9BA /* ViewController.m in Sources */,
+				CEF7682A1950A23E0055C9BA /* Deck.m in Sources */,
 				CEF767F719509FB40055C9BA /* AppDelegate.m in Sources */,
+				CEF7682C1950A23E0055C9BA /* PlayingCard.m in Sources */,
+				CEF768201950A1800055C9BA /* GameBoardViewController.m in Sources */,
+				CEF7681D1950A1510055C9BA /* PlayingCardCell.m in Sources */,
 				CEF767F319509FB40055C9BA /* main.m in Sources */,
+				CEF7682B1950A23E0055C9BA /* HitMeGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +512,7 @@
 				CEF7681719509FB40055C9BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEF7681819509FB40055C9BA /* Build configuration list for PBXNativeTarget "MatchMeTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +521,7 @@
 				CEF7681A19509FB40055C9BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
