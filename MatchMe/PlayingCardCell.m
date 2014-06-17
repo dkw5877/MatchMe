@@ -19,13 +19,50 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.layer.cornerRadius = self.frame.size.width/16;
+}
+
+
 /*
+ * Returns a rectangle that has an even margin all the way around it
+ * @param CGRect representing the rectangle that is the border of each playing card
+ * @return CGRect rectangle that has an even margin all the way around it
+ */
+- (CGRect)innerRectForRect:(CGRect)rect
+{
+    CGFloat margin = rect.size.width/15;
+    return CGRectMake(margin, margin, rect.size.width - 2 * margin, rect.size.height - 2 * margin);
+}
+
+/*
+ * returns a UIColor that looks like the color gold
+ * @return UIColor gold
+ */
+- (UIColor*)goldColor
+{
+    return [UIColor colorWithRed:1.0 green:0.8 blue:0.0 alpha:1.0];
+}
+
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    //create a bezier path
+    UIBezierPath* bezierPath = [UIBezierPath bezierPathWithRoundedRect:[self innerRectForRect:rect] cornerRadius:3];
+    
+    //set the line width
+    bezierPath.lineWidth = 2;
+    
+    //set the line color to gold
+    [[self goldColor]setStroke];
+    
+    //draw the line
+    [bezierPath stroke];
 }
-*/
+
 
 @end
