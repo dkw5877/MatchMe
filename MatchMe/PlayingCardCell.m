@@ -25,13 +25,15 @@
     return self;
 }
 
-//- (void)awakeFromNib
-//{
-//    [super awakeFromNib];
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:NULL];
 //    self.layer.cornerRadius = self.frame.size.width/16;
 //    [self customizeLabel];
 //    [self configureBackOfCard];
-//}
+}
 
 
 - (void)refreshView
@@ -39,6 +41,17 @@
     self.layer.cornerRadius = self.frame.size.width/16;
     [self customizeLabel];
     [self configureBackOfCard];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    //check the object is this PlayingCardCell (self), the value is for our observed property and that the change is YES (1)
+    if ([object isEqual:self] && [keyPath isEqualToString:@"selected"] && [change[@"new"]isEqualToNumber:@1])
+    {
+        //NSLog(@"change %@", change);
+        [self didReceiveTap];
+    }
 }
 
 /**

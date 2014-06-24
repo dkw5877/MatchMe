@@ -93,8 +93,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PlayingCardCell* selectedCell = (PlayingCardCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [selectedCell didReceiveTap];
+//    PlayingCardCell* selectedCell = (PlayingCardCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//    [selectedCell didReceiveTap];
 }
 
 @end
