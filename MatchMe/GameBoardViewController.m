@@ -8,9 +8,11 @@
 
 #import "GameBoardViewController.h"
 #import "PlayingCardCell.h"
+#import "MatchMeGame.h"
 
 @interface GameBoardViewController ()
 
+@property (nonatomic)MatchMeGame* game;
 
 @end
 
@@ -28,7 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupGame];
     
+}
+
+
+- (void)setupGame
+{
+    self.game = [[MatchMeGame alloc]initWithPairs:[self numberOfPairs]];
+    [self.game fillAndShuffleDeck];
 }
 
 - (NSInteger)numberOfPairs

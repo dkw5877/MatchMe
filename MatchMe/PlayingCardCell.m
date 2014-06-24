@@ -34,7 +34,7 @@
 }
 
 
-/*
+/**
  * Customize the playing card labels text
  */
 - (void)customizeLabel
@@ -43,10 +43,10 @@
 }
 
 
-/*
+/**
  * Utility method to return the content of the label. The content of the cell is provided
  * by the playingcard cell data source
- * @return NSString content of the label
+ * NSString content of the label
  */
 - (NSString*)labelContentString
 {
@@ -63,10 +63,10 @@
 }
 
 
-/*
- * Utility method to return the color for the content of the label. The color of the content
- * is provided by the playingcard cell data source
- * @return UIColor color for the content of the label
+/**
+ * Utility method to return the color for the content of the label. The color of the content is
+ * provided by the playingcard cell data source
+ * UIColor color for the content of the label
  */
 - (UIColor*)labelContentColor
 {
@@ -82,9 +82,9 @@
 }
 
 
-/*
+/**
  * Utility method to set the attributes of the label
- * @return NSDictionary label attributes
+ * NSDictionary label attributes
  */
 - (NSDictionary*)labelAttributes
 {
@@ -100,7 +100,7 @@
 }
 
 
-/*
+/**
  * Display an image on the background view of the cell. The image is provided by the
  * cell data source
  */

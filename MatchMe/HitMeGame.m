@@ -9,16 +9,7 @@
 #import "HitMeGame.h"
 #import "PlayingCard.h"
 #import "Deck.h"
-
-@interface HitMeGame()
-
-@property(nonatomic)NSArray *validRanks;
-@property(nonatomic)NSArray *validSuits;
-@property(nonatomic)NSDictionary *colorForSuits;
-@property(nonatomic)Deck *deck;
-
-
-@end
+#import "HitMeGame_private.h"
 
 @implementation HitMeGame
 
