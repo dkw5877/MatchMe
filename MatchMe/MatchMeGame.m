@@ -51,7 +51,7 @@
 {
     NSMutableArray* suitsForRank = [self.validSuits mutableCopy];
     
-    while (suitsForRank.count > 0)
+    while (suitsForRank.count > 2)
     {
         int randomSuit = arc4random() % suitsForRank.count;
         [suitsForRank removeObjectAtIndex:randomSuit];

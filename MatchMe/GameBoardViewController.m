@@ -9,10 +9,12 @@
 #import "GameBoardViewController.h"
 #import "PlayingCardCell.h"
 #import "MatchMeGame.h"
+#import "PlayingCardController.h"
 
 @interface GameBoardViewController ()
 
 @property (nonatomic)MatchMeGame* game;
+@property (nonatomic)NSArray* playingCardControllers;
 
 @end
 
@@ -41,6 +43,33 @@
     [self.game fillAndShuffleDeck];
 }
 
+/*
+ * override the getter method to create and fill the array
+ */
+- (NSArray*)playingCardControllers
+{
+    if (!_playingCardControllers)
+    {
+        NSMutableArray* tempControllers = [[NSMutableArray alloc]initWithCapacity:[self numberOfCards]];
+        
+        for (int i = 0; i < [self numberOfCards]; i++)
+        {
+            [tempControllers addObject:[[PlayingCardController alloc]initWithPlayingCard:[self.game nextCard]]];
+        }
+        
+        _playingCardControllers = tempControllers;
+    }
+    
+    return _playingCardControllers;
+}
+
+
+- (NSInteger)numberOfCards
+{
+    return 2 * [self numberOfPairs];
+}
+
+
 - (NSInteger)numberOfPairs
 {
     return 6;
@@ -55,6 +84,9 @@
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayingCardCell* playingCardCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PlayingCardCell" forIndexPath:indexPath];
+    
+    playingCardCell.dataSource = self.playingCardControllers[indexPath.item];
+    [playingCardCell refreshView];
     return playingCardCell;
 }
 

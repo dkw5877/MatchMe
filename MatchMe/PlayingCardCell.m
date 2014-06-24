@@ -25,14 +25,21 @@
     return self;
 }
 
-- (void)awakeFromNib
+//- (void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    self.layer.cornerRadius = self.frame.size.width/16;
+//    [self customizeLabel];
+//    [self configureBackOfCard];
+//}
+
+
+- (void)refreshView
 {
-    [super awakeFromNib];
     self.layer.cornerRadius = self.frame.size.width/16;
     [self customizeLabel];
     [self configureBackOfCard];
 }
-
 
 /**
  * Customize the playing card labels text

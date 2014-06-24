@@ -14,6 +14,7 @@
 
 @property (nonatomic,weak)id<PlayingCardCellDataSource> dataSource;
 - (void)didReceiveTap;
+- (void)refreshView;
 
 @end
 

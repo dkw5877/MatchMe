@@ -25,7 +25,7 @@
     
     if(self)
     {
-        _playingCard =  playingCard;
+        self.playingCard =  playingCard;
     }
     
     return self;
@@ -43,7 +43,7 @@
  */
 - (NSString*)contentStringForPlayingCardCell:(PlayingCardCell*)playingCardCell
 {
-    return [NSString stringWithFormat:@"%@ %@",_playingCard.rank, _playingCard.suit];
+    return [NSString stringWithFormat:@"%@ %@",self.playingCard.rank, self.playingCard.suit];
 }
 
 /*
@@ -53,7 +53,7 @@
  */
 - (UIColor*)colorForPlayingCardCell:(PlayingCardCell*)playingCardCell
 {
-    return _playingCard.color;
+    return self.playingCard.color;
 }
 
 /*
