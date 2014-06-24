@@ -9,7 +9,9 @@
 #import "PlayingCardCell.h"
 
 @interface PlayingCardCell()
+
 @property (weak, nonatomic) IBOutlet UILabel *playingCardLabel;
+
 @end
 
 @implementation PlayingCardCell
@@ -42,13 +44,43 @@
 
 
 /*
- * Utility method to return the content of the label
+ * Utility method to return the content of the label. The content of the cell is provided
+ * by the playingcard cell data source
  * @return NSString content of the label
  */
 - (NSString*)labelContentString
 {
-    return self.playingCardLabel.text;
+    if (self.dataSource)
+    {
+        //get the content from the data source
+        return [self.dataSource contentStringForPlayingCardCell:self];
+    }
+    else
+    {
+        //if there is not data source, return a empty string
+        return @"";
+    }
 }
+
+
+/*
+ * Utility method to return the color for the content of the label. The color of the content
+ * is provided by the playingcard cell data source
+ * @return UIColor color for the content of the label
+ */
+- (UIColor*)labelContentColor
+{
+    if (self.dataSource)
+    {
+        return [self.dataSource colorForPlayingCardCell:self];
+    }
+    else
+    {
+        return [UIColor blackColor];
+    }
+    
+}
+
 
 /*
  * Utility method to set the attributes of the label
@@ -61,21 +93,22 @@
 //             NSTextEffectAttributeName:NSTextEffectLetterpressStyle};
     
     //place a gold boarder around the label text, leave the text color unchanged (red or black)
-    return @{NSStrokeColorAttributeName:[self goldColor],
-                 NSForegroundColorAttributeName:self.playingCardLabel.textColor,
+    return @{NSStrokeColorAttributeName:[self accentColor],
+                 NSForegroundColorAttributeName:[self labelContentColor],
                  NSStrokeWidthAttributeName:@(-5),
                  NSFontAttributeName:[UIFont boldSystemFontOfSize:20]};
 }
 
 
 /*
- * Display an image on the background view of the cell
+ * Display an image on the background view of the cell. The image is provided by the
+ * cell data source
  */
 - (void)configureBackOfCard
 {
-    UIImage* stanfordImage = [UIImage imageNamed:@"stanford"];
-    UIImageView* backOfCard = [[UIImageView alloc]initWithImage:stanfordImage];
-    self.backgroundView = backOfCard;
+//    UIImage* stanfordImage = [UIImage imageNamed:@"stanford"];
+//    UIImageView* backOfCard = [[UIImageView alloc]initWithImage:stanfordImage];
+    self.backgroundView = [self.dataSource imageViewForBackOfPlayingCardDell:self];
 }
 
 /*
@@ -111,6 +144,8 @@
 - (void(^)(void))flipTheRestOfTheWay
 {
     return ^{
+        
+        //set the view's transform back to the default (identity matrix)
         self.transform = CGAffineTransformIdentity;
     };
 }
@@ -147,7 +182,7 @@
  * returns a UIColor that looks like the color gold
  * @return UIColor gold
  */
-- (UIColor*)goldColor
+- (UIColor*)accentColor
 {
     return [UIColor colorWithRed:1.0 green:0.8 blue:0.0 alpha:1.0];
 }
@@ -164,7 +199,7 @@
     bezierPath.lineWidth = 2;
     
     //set the line color to gold
-    [[self goldColor]setStroke];
+    [[self accentColor]setStroke];
     
     //draw the line
     [bezierPath stroke];

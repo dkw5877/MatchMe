@@ -124,7 +124,7 @@
 
 
 /**
- *Shuffle the deck of cards using arc4random
+ *Shuffle the deck of cards using the Deck object method
  *@param void
  *@return void
  */

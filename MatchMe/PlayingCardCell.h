@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PlayingCardCellDataSource;
+
 @interface PlayingCardCell : UICollectionViewCell
 
+@property (nonatomic,weak)id<PlayingCardCellDataSource> dataSource;
 - (void)didReceiveTap;
+
+@end
+
+@protocol PlayingCardCellDataSource < NSObject >
+
+- (NSString*)contentStringForPlayingCardCell:(PlayingCardCell*)playingCardCell;
+- (UIColor*)colorForPlayingCardCell:(PlayingCardCell*)playingCardCell;
+- (UIImageView*)imageViewForBackOfPlayingCardDell:(PlayingCardCell*)playingCardCell;
+
 
 @end
