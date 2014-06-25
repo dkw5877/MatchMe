@@ -47,10 +47,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     //check the object is this PlayingCardCell (self), the value is for our observed property and that the change is YES (1)
-    if ([object isEqual:self] && [keyPath isEqualToString:@"selected"] && [change[@"new"]isEqualToNumber:@1])
+    if ([keyPath isEqualToString:@"isFaceUp"])
     {
-        //NSLog(@"change %@", change);
-        [self didReceiveTap];
+        //get the isFaceUp property value from the notification
+        NSNumber* isFaceUp = change[@"new"];
+        
+        //flip the card based on is faceUp
+        [self didReceiveTapToDisplayCardFaceUp:[isFaceUp boolValue]];
     }
 }
 
@@ -134,10 +137,10 @@
 /*
  * Animate the card flip when a card is tapped
  */
- - (void)didReceiveTap
+- (void)didReceiveTapToDisplayCardFaceUp:(BOOL)isFaceUp
 {
     [UIView animateWithDuration:.15 animations:[self flipHalfway] completion:^(BOOL finished) {
-        [self reverseCard];
+        [self displayCardFaceUp: isFaceUp];
         [self animateFlipTheRestOfTheWay];
     }];
 }
@@ -181,10 +184,10 @@
 /*
  * Reverse the appearance of the card by hiding/unhiding the label and background image
  */
-- (void)reverseCard
+- (void)displayCardFaceUp:(BOOL)isFaceUp
 {
-    self.playingCardLabel.hidden = !self.playingCardLabel.hidden;
-    self.backgroundView.hidden = !self.backgroundView.hidden;
+    self.playingCardLabel.hidden = !isFaceUp;
+    self.backgroundView.hidden = isFaceUp;
 }
 
 /*

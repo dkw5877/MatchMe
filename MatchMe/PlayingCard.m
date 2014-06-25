@@ -8,6 +8,12 @@
 
 #import "PlayingCard.h"
 
+@interface PlayingCard()
+
+@property (nonatomic, readwrite)BOOL isFaceUp;
+
+@end
+
 @implementation PlayingCard
 
 
@@ -38,5 +44,18 @@
     }
     return self;
 }
+
+- (void)showCardFace
+{
+    self.isFaceUp = YES;
+}
+
+
+- (void)hideCardFace
+{
+    self.isFaceUp = NO;
+}
+
+
 
 @end

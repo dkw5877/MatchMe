@@ -13,7 +13,10 @@
 @property(nonatomic,readonly,strong)NSString *rank;
 @property(nonatomic,readonly,strong)NSString *suit;
 @property(nonatomic,readonly,strong)UIColor *color;
+@property(nonatomic, readonly)BOOL isFaceUp;
 
--(instancetype)initWithRank:(NSString*)rank suit:(NSString*)suit color:(UIColor *)color;
+- (instancetype)initWithRank:(NSString*)rank suit:(NSString*)suit color:(UIColor *)color;
+- (void)showCardFace;
+- (void)hideCardFace;
 
 @end

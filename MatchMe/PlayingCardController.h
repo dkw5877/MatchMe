@@ -13,5 +13,7 @@
 @interface PlayingCardController : NSObject
 
 - (instancetype)initWithPlayingCard:(PlayingCard*)playingCard;
+- (void)connectToCell:(UICollectionViewCell*)cell;
+- (void)didTapCell;
 
 @end

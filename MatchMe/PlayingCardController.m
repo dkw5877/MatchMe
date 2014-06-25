@@ -13,6 +13,7 @@
 @interface PlayingCardController ()< PlayingCardCellDataSource >
 
 @property (nonatomic)PlayingCard* playingCard;
+@property (nonatomic)PlayingCardCell* cell;
 
 @end
 
@@ -34,6 +35,38 @@
 - (instancetype)init
 {
     return [self initWithPlayingCard:nil];
+}
+
+/*
+ * When the cell is tapped send the message to the playing card to show/hide
+ * the face of the card depending on current status (face up/down)
+ */
+- (void)didTapCell
+{
+    if (self.playingCard.isFaceUp)
+    {
+        [self.playingCard hideCardFace];
+    }
+    else
+    {
+        [self.playingCard showCardFace];
+    }
+}
+
+/*
+ * Sets the data source for the cell and refreshes the cell's view
+ * @param UICollectionViewCell
+ * @return void
+ */
+- (void)connectToCell:(UICollectionViewCell*)cell
+{
+    if ([cell isKindOfClass:[PlayingCardCell class]])
+    {
+        self.cell = (PlayingCardCell*)cell;
+        self.cell.dataSource = self;
+        [self.cell refreshView];
+        [self.playingCard addObserver:self.cell forKeyPath:@"isFaceUp" options:NSKeyValueObservingOptionNew context:NULL];
+    }
 }
 
 /*
