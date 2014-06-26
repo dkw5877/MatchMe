@@ -7,6 +7,7 @@
 //
 
 #import "PlayingCardCell.h"
+#import "Constants.h"
 
 @interface PlayingCardCell()
 
@@ -137,7 +138,7 @@
 {
     [UIView animateWithDuration:.15 animations:[self flipHalfway] completion:^(BOOL finished) {
         [self displayCardFaceUp: isFaceUp];
-        [self animateFlipTheRestOfTheWay];
+        [self animateFlipTheRestOfTheWayAndNotify:isFaceUp];
     }];
 }
 
@@ -172,9 +173,14 @@
 /*
  * Complete the animation of card flipping by creating an additional animation
  */
-- (void)animateFlipTheRestOfTheWay
+- (void)animateFlipTheRestOfTheWayAndNotify:(BOOL)notify
 {
-    [UIView animateWithDuration:.15 animations:[self flipTheRestOfTheWay]];
+    [UIView animateWithDuration:.15 animations:[self flipTheRestOfTheWay] completion:^(BOOL finished) {
+        if (notify)
+        {
+            [[NSNotificationCenter defaultCenter]postNotificationName:PlayingCardCellDidFinishFlippingCardNotification object:nil userInfo:nil];
+        }
+    }];
 }
 
 /*

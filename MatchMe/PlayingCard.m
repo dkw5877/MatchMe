@@ -7,6 +7,7 @@
 //
 
 #import "PlayingCard.h"
+#import "Constants.h"
 
 @interface PlayingCard()
 
@@ -48,6 +49,9 @@
 - (void)showCardFace
 {
     self.isFaceUp = YES;
+    NSDictionary* userInfo = @{@"rank":self.rank, @"suit":self.suit,@"color":self.color, @"timestamp":[NSDate date]};
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:PlayingCardDidBecomeFaceUpNotification object:nil userInfo:userInfo];
 }
 
 
