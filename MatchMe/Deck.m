@@ -7,7 +7,7 @@
 //
 
 #import "Deck.h"
-
+#import "PlayingCard.h"
 
 @interface Deck()
 
@@ -36,8 +36,9 @@
  *@param PlayingCard the card to add to the deck
  *@return void
  */
-- (void)addCard:(PlayingCard *)card
+- (void)addCardWithRank:(NSString*)rank suit:(NSString*)suit color:(UIColor*)color
 {
+    PlayingCard* card = [[PlayingCard alloc]initWithRank:rank suit:suit color:color];
     [self.cards addObject:card];
 }
 

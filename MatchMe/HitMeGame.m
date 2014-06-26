@@ -7,7 +7,6 @@
 //
 
 #import "HitMeGame.h"
-#import "PlayingCard.h"
 #import "Deck.h"
 #import "HitMeGame_private.h"
 
@@ -105,9 +104,9 @@
 {
     for (NSString *rank in self.validRanks) {
         for (NSString *suit in self.validSuits) {
-             [self.deck addCard:[[PlayingCard alloc]initWithRank:rank
-                                                              suit:suit
-                                                             color:self.colorForSuits[suit]]];
+            [self.deck addCardWithRank:rank
+                                  suit:suit
+                                 color:self.colorForSuits[suit]];
         }
     }
 

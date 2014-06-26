@@ -9,7 +9,6 @@
 #import "MatchMeGame.h"
 #import "HitMeGame_private.h"
 #import "Deck.h"
-#import "PlayingCard.h"
 
 @interface MatchMeGame ()
 
@@ -69,7 +68,7 @@
         
         [[self suitsForRank]enumerateObjectsUsingBlock:^(NSString* suit, NSUInteger indexSuit, BOOL *stopSuit) {
             
-            [self.deck addCard:[[PlayingCard alloc]initWithRank:rank suit:suit color:self.colorForSuits[suit]]];
+            [self.deck addCardWithRank:rank suit:suit color:self.colorForSuits[suit]];
             
         }];
         

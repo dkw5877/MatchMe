@@ -13,7 +13,7 @@
 @interface Deck : NSObject
 
 -(NSUInteger)numberOfCardInDeck;
--(void)addCard:(PlayingCard *)card;
+-(void)addCardWithRank:(NSString*)rank suit:(NSString*)suit color:(UIColor*)color;
 -(PlayingCard *)showNextCard;
 -(PlayingCard *)dealNextCard;
 -(void)shuffleDeck;

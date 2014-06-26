@@ -28,11 +28,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
     [self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:NULL];
-//    self.layer.cornerRadius = self.frame.size.width/16;
-//    [self customizeLabel];
-//    [self configureBackOfCard];
 }
 
 

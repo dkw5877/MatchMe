@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE24A5BC195918220098AC21 /* PlayingCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24A5BB195918220098AC21 /* PlayingCardController.m */; };
 		CE24A5BF19591C2E0098AC21 /* MatchMeGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24A5BE19591C2E0098AC21 /* MatchMeGame.m */; };
+		CE669980195C92AF00DD0148 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66997F195C92AF00DD0148 /* Constants.m */; };
 		CEF767E719509FB40055C9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF767E619509FB40055C9BA /* Foundation.framework */; };
 		CEF767E919509FB40055C9BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF767E819509FB40055C9BA /* CoreGraphics.framework */; };
 		CEF767EB19509FB40055C9BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF767EA19509FB40055C9BA /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 		CE24A5BD19591C2E0098AC21 /* MatchMeGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchMeGame.h; sourceTree = "<group>"; };
 		CE24A5BE19591C2E0098AC21 /* MatchMeGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchMeGame.m; sourceTree = "<group>"; };
 		CE24A5C01959219C0098AC21 /* HitMeGame_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitMeGame_private.h; sourceTree = "<group>"; };
+		CE66997E195C92AF00DD0148 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CE66997F195C92AF00DD0148 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		CEF767E319509FB40055C9BA /* MatchMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF767E619509FB40055C9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEF767E819509FB40055C9BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,8 @@
 			children = (
 				CEF767F519509FB40055C9BA /* AppDelegate.h */,
 				CEF767F619509FB40055C9BA /* AppDelegate.m */,
+				CE66997E195C92AF00DD0148 /* Constants.h */,
+				CE66997F195C92AF00DD0148 /* Constants.m */,
 			);
 			name = "Start Up";
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				CEF7682C1950A23E0055C9BA /* PlayingCard.m in Sources */,
 				CEF768201950A1800055C9BA /* GameBoardViewController.m in Sources */,
 				CE24A5BF19591C2E0098AC21 /* MatchMeGame.m in Sources */,
+				CE669980195C92AF00DD0148 /* Constants.m in Sources */,
 				CE24A5BC195918220098AC21 /* PlayingCardController.m in Sources */,
 				CEF7681D1950A1510055C9BA /* PlayingCardCell.m in Sources */,
 				CEF767F319509FB40055C9BA /* main.m in Sources */,
