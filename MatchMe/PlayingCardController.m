@@ -9,11 +9,14 @@
 #import "PlayingCardController.h"
 #import "PlayingCard.h"
 #import "PlayingCardCell.h"
+#import "Constants.h"
 
 @interface PlayingCardController ()< PlayingCardCellDataSource >
 
 @property (nonatomic)PlayingCard* playingCard;
 @property (nonatomic)PlayingCardCell* cell;
+@property (nonatomic)id didMatchToken;
+@property (nonatomic)id didNotMatchToken;
 
 @end
 
@@ -27,6 +30,8 @@
     if(self)
     {
         self.playingCard =  playingCard;
+        [self registerForDidIndentifyMatchingCardsNotification];
+        [self registerForDidIndentifyNonmatchingCardsNotification];
     }
     
     return self;
@@ -37,6 +42,39 @@
     return [self initWithPlayingCard:nil];
 }
 
+/*
+ *
+ */
+- (void)registerForDidIndentifyMatchingCardsNotification
+{
+    //register for notification for using block API
+    self.didMatchToken = [[NSNotificationCenter defaultCenter]addObserverForName:MatchMeGameDidIndentifyMatchingCardsNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        if ([self.playingCard isFaceUp])
+        {
+            //fade the card out
+            [UIView animateWithDuration:1.0 animations:^{
+                self.cell.alpha = 0;
+            }];
+        }
+    }];
+}
+
+/*
+ *
+ */
+- (void)registerForDidIndentifyNonmatchingCardsNotification
+{
+    self.didNotMatchToken = [[NSNotificationCenter defaultCenter]addObserverForName:MatchMeGameDidIndentifyNonmatchingCardsNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        if ([self.playingCard isFaceUp])
+        {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.playingCard hideCardFace];
+            });
+        }
+    }];
+}
 /*
  * When the cell is tapped send the message to the playing card to show/hide
  * the face of the card depending on current status (face up/down)
@@ -98,6 +136,13 @@
 {
     UIImage *backOfCardImage = [UIImage imageNamed:@"stanford"];
     return [[UIImageView alloc]initWithImage:backOfCardImage];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MatchMeGameDidIndentifyMatchingCardsNotification];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:MatchMeGameDidIndentifyNonmatchingCardsNotification];
 }
 
 @end

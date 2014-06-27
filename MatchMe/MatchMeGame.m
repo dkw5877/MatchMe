@@ -15,7 +15,7 @@ typedef enum MatchMePairMatchState:NSUInteger
 {
     NotReadyToMatch,
     ReadyToMatch,
-    TwoCardMatch,
+    TwoCardsMatch,
     TwoCardDoMotMatch
     
 } MatchMePairMatchState;
@@ -40,7 +40,7 @@ typedef enum MatchMePairMatchState:NSUInteger
         //register for notification of playing card changes
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playingCardDidGetTurnedFaceUp:) name:PlayingCardDidBecomeFaceUpNotification object:nil];
         
-                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playingCardDidCompleteAnimatingToFaceUp:) name:PlayingCardCellDidFinishFlippingCardNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playingCardDidCompleteAnimatingToFaceUp:) name:PlayingCardCellDidFinishFlippingCardNotification object:nil];
     }
     return self;
 }
@@ -53,13 +53,47 @@ typedef enum MatchMePairMatchState:NSUInteger
 
 - (void)playingCardDidGetTurnedFaceUp:(NSNotification*)notification
 {
-    NSLog(@"notification: %@", notification);
+
+    //get the rank from the card
+    NSString* rank = notification.userInfo[@"rank"];
+    
+    //check if rank to match is not yet set
+    if (!self.rankToMatch)
+    {
+        self.rankToMatch = rank; //set rank to match
+        self.matchState =  ReadyToMatch; //set state as ready to match
+    }
+    else
+    {
+        //check if rank matches, set matchState accordingly
+        if ([self.rankToMatch isEqualToString:rank])
+        {
+            self.matchState = TwoCardsMatch;  //cards match
+        }
+        else
+        {
+            self.matchState = TwoCardDoMotMatch; //cards do not match
+        }
+        
+        self.rankToMatch = nil;
+    }
 }
 
 
 - (void)playingCardDidCompleteAnimatingToFaceUp:(NSNotification*)notification
 {
+    //if cards match send match noticication
+    if (self.matchState == TwoCardsMatch)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:MatchMeGameDidIndentifyMatchingCardsNotification object:self];
+        
+    }//if cards match send nonmatch noticication
+    else if (self.matchState == TwoCardDoMotMatch)
+    {
+        [[NSNotificationCenter defaultCenter]postNotificationName:MatchMeGameDidIndentifyNonmatchingCardsNotification object:self];
+    }
     
+    self.matchState = NotReadyToMatch;
 }
 
 
